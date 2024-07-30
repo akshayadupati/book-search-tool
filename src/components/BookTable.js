@@ -7,7 +7,7 @@ const BookTable = ({ pages }) => {
           <th scope="col">Title</th>
           <th scope="col">Author</th>
           <th scope="col">Published Year</th>
-          <th scope="col">Cover Edition Key</th>
+          <th scope="col">Cover ID</th>
         </tr>
       </thead>
       <tbody>
@@ -20,7 +20,9 @@ const BookTable = ({ pages }) => {
             <td>{eachBook.title}</td>
             <td>{eachBook.author_name && eachBook.author_name.join(",")}</td>
             <td>{eachBook.first_publish_year}</td>
-            <td>{eachBook.cover_edition_key}</td>
+            <td>
+              {eachBook.cover_edition_key ? eachBook.cover_edition_key : "NA"}
+            </td>
           </tr>
         ))}
       </tbody>
