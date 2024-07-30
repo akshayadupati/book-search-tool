@@ -82,7 +82,7 @@ td {
   overflow-x: auto;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .book-table {
     width: 80%;
   }
@@ -91,3 +91,4 @@ td {
     width: 50%;
   }
 }
+
