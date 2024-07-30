@@ -4,10 +4,10 @@ const BookTable = ({ pages }) => {
       <thead class="table-head">
         <tr class="table-heading-row">
           {/* Used for column headers. Helps identify which column the header cell associated to. */}
+          <th scope="col">Cover ID</th>
           <th scope="col">Title</th>
           <th scope="col">Author</th>
           <th scope="col">Published Year</th>
-          <th scope="col">Cover ID</th>
         </tr>
       </thead>
       <tbody>
