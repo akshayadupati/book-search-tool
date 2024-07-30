@@ -16,7 +16,7 @@ describe("test BooSearch component", () => {
 
   test("search books", async () => {
     render(<BookSearch />);
-    const inputElement = screen.getByPlaceholderText("book-name");
+    const inputElement = screen.getByPlaceholderText("enter book name");
     fireEvent.change(inputElement, { target: { value: "Harry Potter" } });
     const buttonElement = screen.getByText("Search");
     fireEvent.click(buttonElement);

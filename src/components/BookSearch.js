@@ -56,7 +56,7 @@ const BookSearch = () => {
         value={bookName}
         id="book-search"
         onChange={(e) => handleBookNameChange(e)}
-        placeholder="book-name"
+        placeholder="enter book name"
       />
       <button className="btn" role="button" onClick={handleBookSearch} placeholder="search-books">
         Search
