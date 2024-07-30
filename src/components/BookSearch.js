@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Shimmer from "./Shimmer";
+import Loader from "./Loader";
 import Paginate from "./Paginate";
 import BookTable from "./BookTable";
 
@@ -18,6 +18,7 @@ const BookSearch = () => {
 
   const handleBookSearch = async () => {
     setIsLoading(true);
+    setBookList([]);
     const result = await fetch(
       "https://openlibrary.org/search.json?q=" + bookName
     );
@@ -58,11 +59,16 @@ const BookSearch = () => {
         onChange={(e) => handleBookNameChange(e)}
         placeholder="enter book name"
       />
-      <button className="btn" role="button" onClick={handleBookSearch} placeholder="search-books">
+      <button
+        className="btn"
+        role="button"
+        onClick={handleBookSearch}
+        placeholder="search-books"
+      >
         Search
       </button>
       <div aria-busy={isLoading} className="loading-status">
-        {isLoading && <Shimmer />}
+        {isLoading && <Loader />}
       </div>
       {pages.length > 0 && (
         <div>

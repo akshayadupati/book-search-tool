@@ -18,12 +18,18 @@ code {
   margin: auto;
   margin-top: 10px;
   padding: 10px;
+  border-collapse: collapse;
+}
+
+.table-head {
+  .table-heading-row {
+    border-bottom: 1px solid black;
+  }
 }
 
 .book-table > td,
 th,
 tr {
-  border-bottom: 1px solid black;
   padding: 10px;
   margin: 10px;
 }
@@ -51,16 +57,10 @@ td {
   font-weight: bold;
 }
 
-.shimmer {
-  width: 50%;
-  margin: auto;
-}
-
 .pagination-btn {
   display: inline;
   padding: 10px;
   cursor: pointer;
-  text-decoration-line: underline;
 }
 
 .pagination-container {
@@ -73,8 +73,21 @@ td {
   list-style-type: none;
   column-gap: 10px;
   justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  padding-left: 0;
 }
 
 .table-style {
   overflow-x: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .book-table {
+    width: 80%;
+  }
+  .pagination-container {
+    margin: auto;
+    width: 50%;
+  }
 }

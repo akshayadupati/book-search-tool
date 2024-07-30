@@ -1,8 +1,8 @@
 const BookTable = ({ pages }) => {
   return (
     <table aria-labelledby="table-description" className="book-table">
-      <thead>
-        <tr>
+      <thead class="table-head">
+        <tr class="table-heading-row">
           {/* Used for column headers. Helps identify which column the header cell associated to. */}
           <th scope="col">Title</th>
           <th scope="col">Author</th>
