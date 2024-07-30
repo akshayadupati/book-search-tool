@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import Paginate from "./Paginate";
+import BookTable from "./BookTable";
 
 const BookSearch = () => {
   const [bookName, setBookName] = useState("");
@@ -45,49 +46,48 @@ const BookSearch = () => {
 
   return (
     <div>
-      <label className="font-bold">Enter the book name: </label>
+      <h1 id="table-description">Book Search Tool</h1>
+      <label htmlFor="book-search" className="font-bold">
+        Enter the book name:{" "}
+      </label>
       <input
         className="input"
         type="text"
         value={bookName}
+        id="book-search"
         onChange={(e) => handleBookNameChange(e)}
+        placeholder="book-name"
       />
-      <button className="btn" onClick={handleBookSearch}>
+      <button className="btn" role="button" onClick={handleBookSearch} placeholder="search-books">
         Search
       </button>
-      {isLoading && <Shimmer />}
+      <div aria-busy={isLoading} className="loading-status">
+        {isLoading && <Shimmer />}
+      </div>
       {pages.length > 0 && (
         <div>
-          <button className="btn" onClick={handleSortByName}>
+          <button
+            className="btn"
+            aria-label="Sort books based on book title"
+            onClick={handleSortByName}
+          >
             Sort By Title
           </button>
-          <button className="btn" onClick={handleSortByYear}>
+          <button
+            className="btn"
+            onClick={handleSortByYear}
+            aria-label="Sort books based on published year"
+          >
             Sort By Published Year
           </button>
-          <table className="book-table">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Published Year</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pages.map((eachBook) => (
-                <tr key={eachBook.cover_edition_key}>
-                  <td>{eachBook.title}</td>
-                  <td>
-                    {eachBook.author_name && eachBook.author_name.join(",")}
-                  </td>
-                  <td>{eachBook.first_publish_year}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-style">
+            <BookTable pages={pages} />
+          </div>
           <Paginate
             books={bookList}
             numberOfPages={numberOfPages}
             setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
           />
         </div>
       )}
