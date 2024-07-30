@@ -18,13 +18,13 @@ const BookSearch = () => {
 
   const handleBookSearch = async () => {
     setIsLoading(true);
-    setBookList([]);
     const result = await fetch(
       "https://openlibrary.org/search.json?q=" + bookName
     );
     const data = await result.json();
     setBookList(data.docs);
     setIsLoading(false);
+    setBookName("");
   };
 
   const handleSortByName = () => {

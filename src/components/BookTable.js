@@ -16,13 +16,23 @@ const BookTable = ({ pages }) => {
             key={`${eachBook._version_}-${eachBook.title}`}
             data-testid="book"
           >
-            {console.log(eachBook)}
+            <td>
+              <img
+                className="cover-image"
+                src={
+                  eachBook.oclc && eachBook.oclc.length > 0
+                    ? `https://covers.openlibrary.org/b/oclc/${eachBook.oclc[0]}-M.jpg`
+                    : eachBook.isbn && eachBook.isbn.length > 0
+                    ? `https://covers.openlibrary.org/b/isbn/${eachBook.isbn[0]}-M.jpg`
+                    : eachBook.lccn && eachBook.lccn.length > 0
+                    ? `https://covers.openlibrary.org/b/lccn/${eachBook.lccn[0]}-M.jpg`
+                    : null
+                }
+              />
+            </td>
             <td>{eachBook.title}</td>
             <td>{eachBook.author_name && eachBook.author_name.join(",")}</td>
             <td>{eachBook.first_publish_year}</td>
-            <td>
-              {eachBook.cover_edition_key ? eachBook.cover_edition_key : "NA"}
-            </td>
           </tr>
         ))}
       </tbody>
