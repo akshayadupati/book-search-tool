@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import BookSearch from "../components/BookSearch";
 
-describe("test BooSearch component", () => {
+describe("test Book Search component", () => {
   test("renders label", () => {
     render(<BookSearch />);
     const labelElement = screen.getByText("Enter the book name:");
