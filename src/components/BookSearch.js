@@ -36,6 +36,12 @@ const BookSearch = () => {
     setBookList(sortedList);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" || e.key === "Space") {
+      handleBookSearch();
+    }
+  };
+
   const handleSortByYear = () => {
     const sortedList = [...bookList].sort((a, b) => {
       if (a.first_publish_year < b.first_publish_year) return -1;
@@ -57,6 +63,7 @@ const BookSearch = () => {
         value={bookName}
         id="book-search"
         onChange={(e) => handleBookNameChange(e)}
+        onKeyDown={handleKeyPress}
         placeholder="enter book name"
       />
       <button
